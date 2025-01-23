@@ -1,8 +1,3 @@
-# Team Members
-- Pranjal Aggarwal
-- Deepanshu Sachdeva
-- Gehna Anand
-
 # Data Annotator Tool
 
 The goal of this project was to create a platform where researchers and crowd workers can collaborate and annotate different types of datasets. The Data Annotator Tool is designed to establish a robust and user-friendly collaborative platform that streamlines the data labeling process for various stakeholders. The primary objective is to enable clients, who are the data owners, to upload volumes of unlabelled data, including images, text, and audio datasets. This platform supports the entire data annotation lifecycle, starting from the moment data is uploaded to the completion of its labeling process.
