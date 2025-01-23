@@ -1,0 +1,5 @@
+.env
+.docker_env
+node_modules/
+assembled-images/
+controllers/uploads/

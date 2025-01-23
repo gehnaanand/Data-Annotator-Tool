@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: gcr.io/dcsc-435117/backend:latest
+    ports:
+      - "4000:4000"
+    env_file:
+      - ./backend/.docker_env
+    volumes:
+      - upload-data:/app/controllers/uploads
+      - ./credentials:/app/credentials
+    depends_on:
+      - mysql
+      - redis
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: gcr.io/dcsc-435117/frontend:latest
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./frontend/.docker_env
+
+  worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: gcr.io/dcsc-435117/worker:latest
+    env_file:
+      - ./backend/.docker_env
+    volumes:
+      - ./credentials:/app/credentials
+      - upload-data:/app/controllers/uploads
+    depends_on:
+      - redis
+    command: ["node", "worker/worker.js"]
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    ports:
+      - "3308:3306"
+    env_file:
+      - ./backend/.docker_env
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./setup_db.sql:/docker-entrypoint-initdb.d/setup_db.sql
+      - ./create_db.sql:/docker-entrypoint-initdb.d/create_db.sql
+
+volumes:
+  mysql-data:
+  upload-data:

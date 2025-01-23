@@ -1,0 +1,35 @@
+# Ignore node_modules
+backend/node_modules/
+frontend/node_modules/
+
+# Ignore logs
+*.log
+
+# Ignore environment files
+backend/.env
+backend/.docker_env
+
+backend/assembled-images/
+backend/controllers/uploads/
+
+# Ignore service credentials file (assuming you mount it as volume)
+credentials/service-credentials.json
+
+# Ignore any build artifacts (e.g., for React frontend)
+build/
+dist/
+
+# Ignore test files
+test/
+tests/
+
+# Ignore local config files (e.g., IDE settings)
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore any temporary files
+*.swp
+*.bak
+*.tmp

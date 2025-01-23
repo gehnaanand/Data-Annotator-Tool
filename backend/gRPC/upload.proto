@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package uploader;
+
+service FileUploader {
+  rpc UploadZipFile (UploadRequest) returns (UploadResponse);
+}
+
+message UploadRequest {
+  bytes file_chunk = 1;  
+  string filename = 2;   
+}
+
+message UploadResponse {
+  string message = 1;  
+}

@@ -1,0 +1,57 @@
+/* Overall layout */
+.layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header styles */
+.header {
+    background: #00796b;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Navigation links */
+.nav {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #b2dfdb;
+}
+
+/* Content area */
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+/* Footer styles */
+.footer {
+    background: #004d40;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
